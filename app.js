@@ -54,11 +54,11 @@ let pacientes = [
 
 /*2 - Escribe una función que te permita agregar pacientes a un array y al finalizar muestre los datos clínicos de los mismos.*/
 
-const AGREGAR_PACIENTE = (nombre, dni, telefono, email, direccion, historiaclinica, preenfermedad) => {
+/* const AGREGAR_PACIENTE = (nombre, dni, telefono, email, direccion, historiaclinica, preenfermedad) => {
     const paciente = new DatosPacientes(nombre, dni, telefono, email, direccion, historiaclinica, preenfermedad)
     pacientes.push(paciente)
-    alert('El paciente ha sido agregado exitosamente')
-}
+    alert('El paciente ha sido agregado exitosamente') */
+
 
 /* 3 - Escribe una función que permita eliminar un paciente por su DNI*/
 const eliminarPaciente = (dni) => {
@@ -103,5 +103,37 @@ const ordenarPorNombre = () => {
   console.log(pacientes)
 }
 
+const addUser = ()=>{
+    
+    let nombre = document.querySelector('#nombre')
+    let fechanacimiento = document.querySelector('#fechaNacimiento')
+    let genero = document.querySelector('#genero')
+    let dni = document.querySelector('#dni')
+    let direccion = document.querySelector('#direccion')
+    let telefono = document.querySelector('#telefono')
+    let email = document.querySelector('#email')
+    let historiaclinica = document.querySelector('#numHistoriaClinica')
+    let enfermedad = document.querySelector('#enfermedadPreexistente')
+
+    let nuevoPaciente = new DatosPacientes(nombre.value, fechanacimiento.value, genero.value, dni.value, direccion.value, telefono.value, email.value, historiaclinica.value, enfermedad.value)
+    pacientes.push(nuevoPaciente)
+    
+     nombre = ''
+     fechanacimiento = ''
+     genero = ''
+     dni = ''
+     direccion = ''
+     telefono = ''
+     email = ''
+     historiaclinica = '' 
+     enfermedad = ''
+   
+}
+
+document.querySelector('#registro').addEventListener('submit', (event)=>{
+    event.preventDefault()
+    addUser()
+    alert('Paciente Agregado existosamente')
+})
 
 
